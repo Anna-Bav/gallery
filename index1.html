@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+
+    <section id="picturesHere">
+        <!-- <div> <img src="im/red.jpg" alt="">
+            <p><a href="#">Костел</a></p>
+        </div>
+
+        <div> <img src="im/troi.jpg" alt="">
+            <p><a href="#">Троицкое</a></p>
+        </div>
+
+        <div> <img src="im/mir.jpg" alt="">
+            <p><a href="#">Мир</a></p>
+        </div> -->
+    </section>
+
+    <section id="bigPic"></section>
+
+    <script>
+        let gallery = [{
+            fname: 'red.jpg',
+            fname1: 'red1.jpg',
+            fname2: 'red2.jpg',
+            pw: '300',
+            title: 'Красный костел',
+            link: 'https: //msj.by/katolicheskie-xramy/krasnyj-kostel-v-minske/',
+            description: 'В храме святого Симеона и святой Елены находится полномасштабная копия Туринской Плащаницы'
+        }, {
+            fname: 'troi.jpg',
+            fname1: 'troi1.jpg',
+            fname2: 'troi2.jpg',
+            pw: '300',
+            title: 'Троицкое предместье',
+            link: 'https: https://www.belarus.by/ru/travel/belarus-life/trinity-suburb',
+            description: 'Троицкое предместье — исторический район города Минска, расположенный в северо-восточной части исторического центра на левом берегу реки Свислочь'
+        }, {
+            fname: 'mir.jpg',
+            fname1: 'mir1.jpg',
+            fname2: 'mir2.jpg',
+            pw: '300',
+            title: 'Мирский замок',
+            link: 'https: https://mirzamak.by/',
+            description: 'Построенный в начале XVI в. магнатом Ю. И. Ильиничем замок стал первым частнособственническим замком на землях Белоруссии'
+        }]
+
+        let s = '';
+        for (i = 0; i < gallery.length; i++) {
+            s += `
+            <div><img src="im/${gallery[i].fname}" alt="${gallery[i].title}" onclick="showPic('${gallery[i].fname}', '${gallery[i].fname1}', '${gallery[i].fname2}', '${gallery[i].description}')" style="width: ${gallery[i].pw}px">
+            <p><a href="${gallery[i].link}">${gallery[i].title}</a></p >
+            </div>`;
+        }
+        picturesHere.innerHTML = s;
+
+
+
+        function showPic(p, p1, p2, d) {
+            bigPic.innerHTML = `
+            <img onclick="bigPic.innerHTML=''" src="im/${p}" style="width: 1000px">
+            <img onclick="bigPic.innerHTML=''" src="im/${p1}" style="width: 1000px">
+            <img onclick="bigPic.innerHTML=''" src="im/${p2}" style="width: 1000px">
+            
+            <p>${d}</p>           
+            `;
+        }
+        setTomeout(showPic, 1000);
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>
